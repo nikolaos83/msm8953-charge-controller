@@ -114,20 +114,20 @@ set_led_state() {
     case "$state" in
         solid_bright)
             [ -w "$LED_INDICATOR_DIR/brightness" ] && echo 255 > "$LED_INDICATOR_DIR/brightness"
-            ;;;
+            ;;
         solid_dim)
             [ -w "$LED_INDICATOR_DIR/brightness" ] && echo 50 > "$LED_INDICATOR_DIR/brightness"
-            ;;;
+            ;;
         blinking)
             if [ -w "$LED_INDICATOR_DIR/trigger" ]; then
                 echo "timer" > "$LED_INDICATOR_DIR/trigger"
                 echo "$blink_speed" > "$LED_INDICATOR_DIR/delay_on"
                 echo "$blink_speed" > "$LED_INDICATOR_DIR/delay_off"
             fi
-            ;;;
+            ;;
         off)
             [ -w "$LED_INDICATOR_DIR/brightness" ] && echo 0 > "$LED_INDICATOR_DIR/brightness"
-            ;;;
+            ;;
     esac
 }
 
